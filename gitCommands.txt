@@ -1,0 +1,18 @@
+If no git folder 
+git init
+
+Then to add repository as remote
+git remote add <remoteName (used to address a repo link - conventionally called origin)> "repo link"
+
+To add all changed files to staging area
+git add . 
+
+To add specific files
+git add <filename with extn>
+
+
+To make a commit
+git commit -m "Commit message"
+
+To push committed files to github
+git push origin main

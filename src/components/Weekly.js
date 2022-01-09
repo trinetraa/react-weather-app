@@ -16,7 +16,20 @@ function Weekly (props){
                     <div className= "day-minmax">
                         {convertToCelsius(props.temp.min)}℃ | {convertToCelsius(props.temp.max)}℃
                     </div>
-                    
+                    <div className="day-info-container">
+                        <div className="day-info">
+                            Morning: {convertToCelsius(props.temp.morn)}℃ 
+                        </div>
+                        <div className="day-info">
+                            Afternoon: {convertToCelsius(props.temp.day)}℃ 
+                        </div>
+                        <div className="day-info">
+                            Evening: {convertToCelsius(props.temp.eve)}℃ 
+                        </div>
+                        <div className="day-info">
+                            Night: {convertToCelsius(props.temp.night)}℃ 
+                        </div>
+                    </div>
                 </div>
     )
 }
