@@ -44,8 +44,7 @@ function Weather() {
             //popup to be displayed in case location not retreived successfully
         }
     }
-
-    console.log(weather)
+    console.log(weather);
     if(isLoaded){
         return (
             <div className="weather">
