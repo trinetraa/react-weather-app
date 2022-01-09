@@ -11,10 +11,10 @@ function Weekly (props){
                     <img src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}/>  
                     </div>
                     <div className="day-description">
-                        {props.description}
+                        <h4>{props.description}</h4>
                     </div>
-                    <div className= "day-minmax">
-                        {convertToCelsius(props.temp.min)}℃ | {convertToCelsius(props.temp.max)}℃
+                    <div className= "day-description">
+                        <h4>{convertToCelsius(props.temp.min)}℃ | {convertToCelsius(props.temp.max)}℃</h4>
                     </div>
                     <div className="day-info-container">
                         <div className="day-info">

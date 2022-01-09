@@ -1,6 +1,8 @@
 .App {
-  text-align: center;
+  max-height: 100vh;
   height: 100vh;
+  overflow: hidden;
+  text-align: center;
   background: linear-gradient(rgb(46,150,163), rgb(48,62,143));
   color: white;
 }
@@ -38,4 +40,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.current-weather{
+  height: 30%;
+  max-height: 30%;
+}
+
+.temperature h4{
+  margin: 2px auto !important;
+}
+
+.other-data {
+  width: 30%;
+  display: flex;
+  margin: 0px auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.otherDataChildren {
+  min-width: 50%;
+}
+
+.daily-weather {
+  max-height: 30%;
+  height: 30%;
+}
+
+.daily-container {
+  display: flex;
+  min-width: 13%;
+  justify-content: space-around;
+}
+
+.day-description h4{
+  margin: 2px auto !important;
 }

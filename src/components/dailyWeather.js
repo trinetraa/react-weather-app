@@ -7,9 +7,9 @@ function DailyWeather(props) {
         <div className="daily-weather">
             <h2>Weekly Forecast</h2>
             <div className="daily-container">
-                {props.dailyweather.map((day) => {
-                    return (
-                        <Weekly icon={day.weather[0].icon} description={day.weather[0].description} temp={day.temp} timestamp={day.dt}/>
+                {props.dailyweather.map((day, i) => {
+                    if(i != 0) return (
+                        <Weekly key={day.dt} icon={day.weather[0].icon} description={day.weather[0].description} temp={day.temp} timestamp={day.dt}/>
                     )
                 }
                 )

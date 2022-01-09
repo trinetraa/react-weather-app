@@ -7,18 +7,18 @@ function CurrentWeather(props){
             <h2>Today's Weather</h2>
             <div className="curr-container">
                 <div className="curr-icon">
-                    <img src={`http://openweathermap.org/img/wn/${props.currweather.weather[0].icon}@4x.png`}/>
+                    <img src={`http://openweathermap.org/img/wn/${props.currweather.weather[0].icon}@2x.png`}/>
                 </div>
                 <div className="description">
-                {props.currweather.weather[0].main}
+                <h2>{props.currweather.weather[0].main}</h2>
                 </div>
                 <div className="temperature">
-                Feels Like: {convertToCelsius(props.currweather.feels_like)} ℃ 
+                <h4>Feels Like: {convertToCelsius(props.currweather.feels_like)} ℃</h4> 
                 </div>
                 <div className="temperature">
-                Temperature: {convertToCelsius(props.currweather.temp)} ℃
+                <h4>Temperature: {convertToCelsius(props.currweather.temp)} ℃</h4>
                 </div>
-                <div className="otherData">
+                <div className="other-data">
                     <div className="otherDataChildren">
                     Humidity: {props.currweather.humidity}
                     </div>
