@@ -23,7 +23,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "no-undef": "off"
+      "no-undef": "off", 
+      "no-unused-expressions": "off"
     }
   },
   "browserslist": {

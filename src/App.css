@@ -77,3 +77,23 @@
 .day-description h4{
   margin: 2px auto !important;
 }
+
+.hourly-display{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    min-width: 90%;
+}
+
+.hourly-weather {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn {
+  color: white;
+  background-color: #9299a0;
+  height: 70px;
+  margin: auto;
+}

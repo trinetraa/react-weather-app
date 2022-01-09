@@ -50,8 +50,8 @@ function Weather() {
             <div className="weather">
                 weather
                 <CurrentWeather currweather = {weather[0].current} />
-                <DailyWeather dailyweather={weather[0].daily}/>
                 <HourlyWeather hourlyweather={weather[0].hourly}/>
+                <DailyWeather dailyweather={weather[0].daily}/>
             </div>
         );
     }

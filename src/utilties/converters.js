@@ -14,11 +14,11 @@ let minutes = "0" + date.getMinutes();
 let seconds = "0" + date.getSeconds();
 
 // Will display time in 10:30:23 format
-let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+let formattedTime = hours + ':' + minutes.substr(-2);
 
 let day = date.getDate();
-let month = date.getMonth()+1;
-console.log(month);
+let month = date.getMonth();
+
 let formattedDate = `${day}/${month}`;
 const dateTime = {
    time: formattedTime,
