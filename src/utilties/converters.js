@@ -17,7 +17,7 @@ let seconds = "0" + date.getSeconds();
 let formattedTime = hours + ':' + minutes.substr(-2);
 
 let day = date.getDate();
-let month = date.getMonth();
+let month = date.getMonth()+1;
 
 let formattedDate = `${day}/${month}`;
 const dateTime = {
