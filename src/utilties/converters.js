@@ -33,3 +33,7 @@ export const getTodayTomorrow = (date)=>{
     if(date.indexOf(currentDate.getDate())==0) return "Today";
     else return "Tomorrow";
 }
+
+export function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }

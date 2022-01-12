@@ -1,7 +1,6 @@
 import {convertToCelsius} from "../utilties/converters";
 
 function CurrentWeather(props){
-
     return(
         <div className="current-weather">
             <h2>Today's Weather</h2>

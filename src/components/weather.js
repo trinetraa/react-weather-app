@@ -1,18 +1,31 @@
-import CurrentWeather from "./currentWeather";
-import DailyWeather from "./dailyWeather";
-import HourlyWeather from "./hourlyWeather";
+import Header from "./Header";
 import { useState, useEffect } from "react";
+import SearchWeather from "./searchWeather";
 
 
 function Weather() {
     const [weather, setWeather] = useState({});
+    const [cityName, setCityName] = useState("");
+    const [isCity, setIsCity] = useState(true);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [finalWeather, setFinalWeather] = useState({});
+    useEffect(() => {
+        if (!isCity) {
+            setFinalWeather(weather[0]);
+        }
+        else {
+            setFinalWeather(weather);
+        }
+    }, [weather, isLoaded, isCity])
+    
 
     useEffect(() => {
         getLocation();
     }, []);
 
     const getWeather = async (lat, long) => {
+        setIsLoaded(false);
+        setIsCity(false);
         const key = "6d1b67f5e9541101ce7b395acb1ec866";
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${key}`);
@@ -26,7 +39,7 @@ function Weather() {
             console.log(e);
         }
     }
-    
+
     const getLocation = () => {
         //navigator = interface representing state and identity of user
         //geolocation = API returning accessing location of device 
@@ -45,18 +58,44 @@ function Weather() {
         }
     }
     console.log(weather);
-    if(isLoaded){
+
+    const searchWeatherCall = async (val) => {
+        console.log(val);
+        setIsCity(true);
+        setIsLoaded(false);
+        try {
+            const key = "6d1b67f5e9541101ce7b395acb1ec866"
+            const searchResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val}&appid=${key}`);
+            const searchWeatherResult = await searchResponse.json();
+            console.log(searchWeatherResult);
+            const currSearchedWeather = {
+                weather: searchWeatherResult.weather,
+                feels_like: searchWeatherResult.main.feels_like,
+                temp: searchWeatherResult.main.temp,
+                humidity: searchWeatherResult.main.humidity,
+                pressure: searchWeatherResult.main.pressure,
+                visibility: searchWeatherResult.sys.visibility,
+                wind_speed: searchWeatherResult.wind.speed
+            }
+            setCityName(val)
+            setWeather(currSearchedWeather);
+            setIsLoaded(true);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    if (isLoaded) {
         return (
-            <div className="weather">
-                weather
-                <CurrentWeather currweather = {weather[0].current} />
-                <HourlyWeather hourlyweather={weather[0].hourly}/>
-                <DailyWeather dailyweather={weather[0].daily}/>
-            </div>
-        );
+            <>
+            <Header search={searchWeatherCall} />
+            <SearchWeather finalWeather={finalWeather} isCity={isCity} cityName={cityName}/>
+            </>
+            );
     }
     else return (
-        <div>
+        <div className="weather">
             Loading...
         </div>
     )
