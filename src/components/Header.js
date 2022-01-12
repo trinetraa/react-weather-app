@@ -12,7 +12,7 @@ function Header(props){
     return(
         <div className="header">
             <div className="title">
-                Weather App
+                <h1>Weather App</h1>
             </div>
             <div className="search-bar">
                 <input value={searchVal} onChange={handleChange} placeholder="Search..."></input>

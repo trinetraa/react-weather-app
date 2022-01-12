@@ -97,3 +97,27 @@
   height: 70px;
   margin: auto;
 }
+
+.title h1{
+  margin: 0px;
+}
+
+.title {
+    width: 70%;
+    float: left;
+}
+
+
+.search-bar{
+  float: right;
+  position: absolute;
+  right: 10px;
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  text-align: left;
+  margin: 5px 15px;
+
+}
