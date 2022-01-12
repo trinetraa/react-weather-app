@@ -22,7 +22,6 @@ function HourlyWeather(props){
     const nextPage = ()=>{
         if(pageNo<4) setPageNo(pageNo+1);
     }
-    console.log(hourlyDisplay);
     
     if(hourlyDisplay.length > 0){
         return(

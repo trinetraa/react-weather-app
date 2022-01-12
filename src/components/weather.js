@@ -35,8 +35,8 @@ function Weather() {
             setIsLoaded(true);
         }
         catch (e) {
-            alert("Unable to retreive values right now. Please try again later.");
-            console.log(e);
+            alert(`Error ${e} 
+            Unable to retreive values right now. Please try again later.`);
         }
     }
 
@@ -50,24 +50,22 @@ function Weather() {
                 //It takes in latitude and longitude as parameters
                 getWeather(position.coords.latitude, position.coords.longitude);
             }, (err) => {
-                console.log(err);
-            }); //catching and printing error in case of failure for our personal use and understanding
+                alert(`Error ${err}
+                Unable to retreive values right now. Please try again later.`);
+                }); //catching and printing error in case of failure for our personal use and understanding
         } else {
             alert("Geolocation is not supported by this browser.");
             //popup to be displayed in case location not retreived successfully
         }
     }
-    console.log(weather);
 
     const searchWeatherCall = async (val) => {
-        console.log(val);
         setIsCity(true);
         setIsLoaded(false);
         try {
             const key = "6d1b67f5e9541101ce7b395acb1ec866"
             const searchResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val}&appid=${key}`);
             const searchWeatherResult = await searchResponse.json();
-            console.log(searchWeatherResult);
             const currSearchedWeather = {
                 weather: searchWeatherResult.weather,
                 feels_like: searchWeatherResult.main.feels_like,
@@ -82,7 +80,7 @@ function Weather() {
             setIsLoaded(true);
         }
         catch (e) {
-            console.log(e);
+            alert(`Error: ${e}`);
         }
     }
 
